@@ -1,0 +1,83 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Winget Package Manager">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- List Upgradable Packages Button -->
+            <RowDefinition Height="Auto" />
+            <!-- Exclude All Packages Button -->
+            <RowDefinition Height="Auto" />
+            <!-- Restore Excluded Packages Button -->
+            <RowDefinition Height="*" />
+            <!-- ExcludeBox -->
+            <RowDefinition Height="Auto" />
+            <!-- Update All Button -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"
+                              MaxWidth="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <!-- List Upgradable Packages Button -->
+        <Button Content="List Upgradable Packages"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="10"
+                x:Name="ListUpgradableButton" />
+        <!-- Exclude All Packages Button -->
+        <Button Content="Exclude All Packages"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="10"
+                x:Name="ExcludeAllButton" />
+        <!-- Restore Excluded Packages Button -->
+        <Button Content="Restore All Excluded Packages"
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="10"
+                x:Name="RestoreExcludedButton" />
+        <!-- ExcludeBox -->
+        <ListView x:Name="ExcludeBox"
+                  Grid.Row="3"
+                  Grid.Column="0"
+                  Margin="10"
+                  Height="Auto"
+                  MinHeight="100"
+                  VerticalAlignment="Stretch">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name"
+                                    DisplayMemberBinding="{Binding Name}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <!-- Update All Button -->
+        <Button Content="Update Upgradable Packages"
+                Grid.Row="4"
+                Grid.Column="0"
+                Margin="10"
+                x:Name="UpdateUpgradableButton" />
+        <!-- OutputListView -->
+        <ListView x:Name="OutputListView"
+                  Grid.Row="0"
+                  Grid.Column="1"
+                  Grid.RowSpan="5"
+                  Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name"
+                                    DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="ID"
+                                    DisplayMemberBinding="{Binding ID}" />
+                    <GridViewColumn Header="Version"
+                                    DisplayMemberBinding="{Binding Version}"
+                                    Width="Auto" />
+                    <GridViewColumn Header="Available"
+                                    DisplayMemberBinding="{Binding Available}"
+                                    Width="Auto" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

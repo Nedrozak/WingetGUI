@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "WingetGUI",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/winget_gui.ps1",
+            "cwd": "${cwd}"
+        },
+    ]
+}
